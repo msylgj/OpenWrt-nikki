@@ -5,9 +5,9 @@ PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/vernesong/mihomo.git
-PKG_SOURCE_DATE:=2025-08-08
-PKG_SOURCE_VERSION:=00e7648b1c053c7af8cad826d985e4bf6c44ca0f
-PKG_MIRROR_HASH:=6a1b4067c5f313840fd53c10255cf1f5adcc7d64f97769a3b8a00d446015ece5
+PKG_SOURCE_DATE:=2025-08-12
+PKG_SOURCE_VERSION:=01a9f11a8f4125d3dcc04e84c3f56e998ad79487
+PKG_MIRROR_HASH:=2b1f987fb2121bd66fd3318a74b7250191b02461eb207af7e04530c1f9de0c76
 
 PKG_LICENSE:=GPL3.0+
 PKG_MAINTAINER:=Joseph Mory <morytyann@gmail.com>
@@ -19,7 +19,7 @@ PKG_BUILD_FLAGS:=no-mips16
 PKG_BUILD_TIME:=$(shell date -u -Iseconds)
 
 GO_PKG:=github.com/metacubex/mihomo
-GO_PKG_LDFLAGS_X:=$(GO_PKG)/constant.Version=$(PKG_SOURCE_VERSION) $(GO_PKG)/constant.BuildTime=$(PKG_BUILD_TIME)
+GO_PKG_LDFLAGS_X:=$(GO_PKG)/constant.Version=alpha-smart-$(shell echo $(PKG_SOURCE_VERSION) | cut -c1-7) $(GO_PKG)/constant.BuildTime=$(PKG_BUILD_TIME)
 GO_PKG_TAGS:=with_gvisor
 
 include $(INCLUDE_DIR)/package.mk
